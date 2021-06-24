@@ -49,16 +49,36 @@ console.log(document.cookie);
 
 // ТРЕТЄ ЗАВДАННЯ
 
-$(document).ready(function () {
-	let one = getCookie("one"); if (one) $('#one').val(one);
-	let two = getCookie("two"); if (two) $('#two').val(two);
-  let three = getCookie("three"); if (three) $('#three').val(three);
-  let four = getCookie("four"); if (four) $('#four').val(four);
-  let five = getCookie("five"); if (five) $('#five').val(five);
+// $(document).ready(function () {
+// 	let one = getCookie("one"); if (one) $('#one').val(one);
+// 	let two = getCookie("two"); if (two) $('#two').val(two);
+//   let three = getCookie("three"); if (three) $('#three').val(three);
+//   let four = getCookie("four"); if (four) $('#four').val(four);
+//   let five = getCookie("five"); if (five) $('#five').val(five);
 
-  $(window).on('beforeunload', function () {
-    $('input').each(function () {
-      document.cookie = $(this).attr('id') + "=" + $(this).val();
-    });
-  });
-});             
+//   $(window).on('beforeunload', function () {
+//     $('input').each(function () {
+//       document.cookie = $(this).attr('id') + "=" + $(this).val();
+//     });
+//   });
+// });         
+
+//другий варіант третього завдання
+
+let clientInformation = [];
+let addInformation = (ev) => {
+  ev.preventDefault();
+  let info = {
+    id: Date.now(),
+    one: document.getElementById('one').value,
+    two: document.getElementById('two').value
+  }
+  clientInformation.push(info);
+  document.forms[0].reset();
+  console.warn('added', { clientInformation });
+  let pre = document.querySelector('#msg pre');
+  pre.textContent = '\n' + JSON.stringify(clientInformation, '\t', 2);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('btn').addEventListener('click', addInformation);
+});
