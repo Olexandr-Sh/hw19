@@ -6,13 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <input type="text" id="one" />
-    <input type="text" id="two" />
-    <input type="text" id="three" />
-    <input type="text" id="four" />
-    <input type="text" id="five" />
+  <body onload="get()">
+    <p id="savedText"></p>
+    <p id="openedText"></p>
+    <input
+      type="text"
+      class="save"
+      id="one"
+      placeholder="Enter your first name"
+    />
+    <input
+      type="text"
+      class="save"
+      id="two"
+      placeholder="Enter your second name"
+    />
+    <input type="text" class="save" id="three" placeholder="Enter your age" />
+    <input
+      type="text"
+      class="save"
+      id="four"
+      placeholder="Enter your country"
+    />
+    <input type="text" class="save" id="five" placeholder="Enter your city" />
     <button id="btn">Button</button>
+    <textarea name="" id="ta" cols="30" rows="10"></textarea>
+    <button id="btn2">SAVE</button>
     <script src="./index.js"></script>
   </body>
 </html>
